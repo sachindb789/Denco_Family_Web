@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="sidebar">
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner slimscroll">
+            <div id="sidebar-menu" class="sidebar-menu">
+                <div class="header-left">
+                    <a th:href="@{/admin/dashboard}" class="logo">
+                        <img th:src="@{/admin/assets/img/logo1.png}" width="130" height="65" alt="">
+                    </a>
+                </div>
+                <ul class="sidebar-ul">
+                    <li class="menu-title">Menu</li>
+                    <li th:classappend="${activePage == 'dashboard'} ? 'active'">
+                        <a th:href="@{/admin/dashboard}">
+                            <img th:src="@{/admin/assets/img/sidebar/icon-1.png}" alt="icon">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li th:classappend="${activePage == 'popeyes-punch'} ? 'active'">
+                        <a th:href="@{/admin/popeyes-punch}">
+                            <img th:src="@{/admin/assets/img/sidebar/icon-3.png}" alt="icon">
+                            <span>Popeyes Punch</span>
+                        </a>
+                    </li>
+                    <li th:classappend="${activePage == 'xenial-punch'} ? 'active'">
+                        <a th:href="@{/admin/xenial-punch}">
+                            <img th:src="@{/admin/assets/img/sidebar/icon-5.png}" alt="icon">
+                            <span>Xenial Punch</span>
+                        </a>
+                    </li>
+                    <li th:classappend="${activePage == 'xenial-ee-changes'} ? 'active'">
+                        <a th:href="@{/admin/xenial-ee-changes}">
+                            <img th:src="@{/admin/assets/img/sidebar/icon-6.png}" alt="icon">
+                            <span>Xenial EE Changes</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

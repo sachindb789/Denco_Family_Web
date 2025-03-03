@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="shortcut icon" th:href="@{/admin/assets/img/favicon.png}">
+
+    <title>Popeyes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/admin/assets/img/favicon.png}">
+    <link rel="stylesheet" th:href="@{/admin/assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/plugins/fontawesome/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/css/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{/admin/plugins/fontawesome-free/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/dist/css/adminlte.min2167.css?v=3.2.0}">
+</head>
+<body>
+<div class="main-wrapper">
+    <div class="page-wrapper">
+        <!-- Include Header Fragment -->
+        <div th:replace="~{fragments/header :: header}"></div>
+
+        <!-- Include Sidebar Fragment -->
+        <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="text-uppercase mb-0 mt-0 page-title">Popeyes Punch data</h5>
+                    </div>
+<!--                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--                        <ul class="breadcrumb float-right p-0 mb-0">-->
+<!--                            <li class="breadcrumb-item"><a href="@{/add-accounts}"><i class="fas fa-home"></i> Home</a></li>-->
+<!--                            <li class="breadcrumb-item"><a href="@{/add-accounts}">New Hires</a></li>-->
+<!--                            <li class="breadcrumb-item"><span> New Hire Data</span></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+                </div>
+            </div>
+<!--            <div class="row">-->
+<!--                <div class="col-sm-4 col-12"></div>-->
+<!--                <div class="col-sm-8 col-12 text-right add-btn-col">-->
+<!--                    <a th:href="@{/add-accounts}" class="btn btn-primary float-right btn-rounded"><i class="fas fa-plus"></i> Add New Hire</a>-->
+<!--                    <div class="view-icons">-->
+<!--                        <a th:href="@{/all-accounts}" class="list-view btn btn-link"><i class="fas fa-bars"></i></a>-->
+<!--                        <a th:href="@{/add-accounts}" class="grid-view btn btn-link active"><i class="fas fa-th"></i></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <div class="table-responsive">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Store Name</th>
+                                <th>EE Code</th>
+                                <th>Employee Name</th>
+                                <th>Designation</th>
+                                <th>Work Date</th>
+                                <th>In Time</th>
+                                <th>Out Time</th>
+<!--                                <th>Total Hours</th>-->
+<!--                                <th>Total Pay</th>-->
+                                <th>Status</th>
+                                <th>Created At</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="punch : ${punchDataList}">
+                                <td th:text="${punch.id}"></td>
+                                <td th:text="${punch.storeName}"></td>
+                                <td th:text="${punch.exportId}"></td>
+                                <td th:text="${punch.empName}"></td>
+                                <td th:text="${punch.empDesignation}"></td>
+                                <td th:text="${punch.workDate}"></td>
+                                <td th:text="${punch.inTime}"></td>
+                                <td th:text="${punch.outTime}"></td>
+<!--                                <td th:text="${punch.totalHrs}"></td>-->
+<!--                                <td th:text="${punch.totalPay}"></td>-->
+                                <td th:text="${punch.status}"></td>
+                                <td th:text="${punch.createdAt}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script th:src="@{/admin/assets/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/admin/assets/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/admin/assets/js/select2.min.js}"></script>
+<script th:src="@{/admin/assets/js/moment.min.js}"></script>
+<script th:src="@{/admin/assets/plugins/datetimepicker/js/tempusdominus-bootstrap-4.min.js}"></script>
+<script th:src="@{/admin/assets/js/app.js}"></script>
+<script th:src="@{/admin/plugins/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
+<script th:src="@{/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
+<script th:src="@{/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
+<script th:src="@{/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js}"></script>
+<script th:src="@{/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js}"></script>
+<script th:src="@{/admin/plugins/jszip/jszip.min.js}"></script>
+<script th:src="@{/admin/plugins/pdfmake/pdfmake.min.js}"></script>
+<script th:src="@{/admin/plugins/pdfmake/vfs_fonts.js}"></script>
+<script th:src="@{/admin/plugins/datatables-buttons/js/buttons.html5.min.js}"></script>
+<script th:src="@{/admin/plugins/datatables-buttons/js/buttons.print.min.js}"></script>
+
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": true,
+            "buttons": ["excel", "pdf", "print"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
+
+</body>
+</html>

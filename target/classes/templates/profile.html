@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Popeyes - Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <link rel="shortcut icon" th:href="@{/admin/assets/img/favicon.png}">
+    <link rel="stylesheet" th:href="@{/admin/assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/css/style.css}">
+</head>
+<body>
+<div class="main-wrapper">
+    <div class="page-wrapper">
+        <!-- Include Header & Sidebar -->
+        <div th:replace="~{fragments/header :: header}"></div>
+        <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="text-uppercase mb-0 mt-0 page-title">My Profile</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <h4 class="page-title">My Profile</h4>
+                </div>
+                <div class="col-sm-5 text-right m-b-30">
+                    <a href="#" class="btn btn-primary btn-rounded"><i class="fas fa-edit"></i> Edit Profile</a>
+                </div>
+            </div>
+
+            <div class="card-box m-b-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile-view">
+                            <div class="profile-img-wrap">
+                                <div class="profile-img">
+                                    <a href="#"><img class="avatar" th:src="@{/admin/assets/img/user.jpg}" alt="Profile Picture"></a>
+                                </div>
+                            </div>
+                            <div class="profile-basic">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="profile-info-left">
+                                            <h3 class="user-name m-t-0" th:text="${user.username}">User Name</h3>
+                                            <h5 class="company-role m-t-0 m-b-0" th:text="NA">User Role</h5>
+                                            <small class="text-muted" th:text="NA">User Designation</small>
+                                            <div class="staff-msg">
+                                                <a href="#" class="btn btn-primary">Send Message</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <ul class="personal-info">
+                                            <li>
+                                                <span class="title">Phone:</span>
+                                                <span class="text"><a href="#" th:text="${user.phone}">Phone</a></span>
+                                            </li>
+                                            <li>
+                                                <span class="title">Email:</span>
+                                                <span class="text"><a href="#" th:text="${user.email}">Email</a></span>
+                                            </li>
+<!--                                            <li>-->
+<!--                                                <span class="title">Address:</span>-->
+<!--                                            </li>-->
+                                            <li>
+                                                <span class="title">Joined Date:</span>
+                                                <span class="text"><a href="#" th:text="${user.createdAt}">Date</a></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/admin/assets/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/admin/assets/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/admin/assets/js/app.js}"></script>
+
+</body>
+</html>

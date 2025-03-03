@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .error-container { color: red; font-size: 20px; border: 1px solid #ddd; padding: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+<h2>Something went wrong!</h2>
+<div class="error-container">
+    <p><strong>Error Code:</strong> <span th:text="${errorCode}"></span></p>
+    <p><strong>Message:</strong> <span th:text="${errorMessage}"></span></p>
+</div>
+</body>
+</html>

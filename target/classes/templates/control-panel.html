@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Xenial EE Changes Control Panel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-6">
+
+<div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-4 text-center">Xenial EE Changes Control Panel</h1>
+
+    <!-- Buttons for controlling the service -->
+    <div class="flex justify-center space-x-4 mb-4">
+        <form th:action="@{/admin/start}" method="post">
+            <button class="px-4 py-2 bg-green-500 text-white rounded">Start</button>
+        </form>
+        <form th:action="@{/admin/stop}" method="post">
+            <button class="px-4 py-2 bg-red-500 text-white rounded">Stop</button>
+        </form>
+        <form th:action="@{/admin/restart}" method="post">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded">Restart</button>
+        </form>
+        <form th:action="@{/admin/control}" method="get">
+            <button class="px-4 py-2 bg-gray-500 text-white rounded">Check Status</button>
+        </form>
+    </div>
+
+    <!-- Service Status -->
+    <div class="bg-white p-4 rounded shadow-md">
+        <h2 class="text-xl font-semibold mb-2">Service Status</h2>
+        <pre class="p-3 bg-gray-200 rounded text-sm" th:text="${status}">Loading...</pre>
+    </div>
+
+    <!-- Logs Section -->
+    <div class="bg-black text-white p-4 rounded shadow-md mt-4">
+        <h2 class="text-xl font-semibold mb-2">Live Logs</h2>
+        <form th:action="@{/admin/logs}" method="get">
+            <button class="px-4 py-2 bg-yellow-500 text-white rounded">Refresh Logs</button>
+        </form>
+        <div class="h-64 overflow-auto mt-2 p-3 bg-gray-900 text-sm">
+            <pre th:text="${logs}">No logs available...</pre>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
